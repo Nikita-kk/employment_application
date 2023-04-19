@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<body> 
-    <div class="container">
-        <a href="{{route('form')}}"><button class="btn-primary rounded" style="position: relative;left: 1000px; margin: 10px">ADD</button></a>
+<body>
+        <a href="{{route('form')}}"><button class="btn-primary rounded" >ADD</button></a>
         @if (session()->has('msg'))
              <div class="alert alert-success text-success" >
                 {{session()->get('msg')}}
@@ -23,9 +22,16 @@
             <th scope="col">ID</th>
             <th scope="col">Full Name</th>
             <th scope="col">Email Address</th>
-            <th scope="col">Password</th>
+            {{-- <th scope="col">Password</th> --}}
             <th scope="col">Mobile No.</th>
+            {{-- <th scope="col">Country</th> --}}
+            <th scope="col">Country</th>
+            <th scope="col">State</th>
+            <th scope="col">city</th>
+
             <th scope="col">Address</th>
+
+
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -35,8 +41,13 @@
                 <td>{{$d->id}}</td>
                 <td>{{$d->name}}</td>
                 <td>{{$d->email}}</td>
-                <td>{{$d->password}}</td>
+                {{-- <td>{{$d->password}}</td> --}}
                 <td>{{$d->phone}}</td>
+                <td>{{$d->country->name}}</td>
+                <td>{{$d->state->name}}</td>
+                <td>{{$d->city->name}}</td>
+
+
                 <td>{{$d->address}}</td>
                 <td><a href="{{route('edit',$d->id)}}"><button class="btn-warning rounded">EDIT</button></a>
                     <a href="{{route('delete',$d->id)}}"><button class="btn-danger rounded">DELETE</button></a></td>
@@ -44,6 +55,5 @@
            @endforeach
         </tbody>
       </table>
-    </div>
 </body>
 </html>

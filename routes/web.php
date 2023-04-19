@@ -17,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('form',[FormController::class,'form'])->name('form');
+Route::get('form',[FormController::class,'index'])->name('form');
 Route::post('store',[FormController::class,'store'])->name('store');
 Route::get('table',[FormController::class,'table'])->name('table');
 Route::get('edit/{id}',[FormController::class,'edit'])->name('edit');
 Route::post('update/{id}',[FormController::class,'update'])->name('update');
 Route::get('delete/{id}',[FormController::class,'delete'])->name('delete');
+
+// country//
+
+Route::get('dropdown', [FormController::class, 'index']);
+Route::post('api/fetch-states', [FormController::class, 'fetchState']);
+Route::post('api/fetch-cities', [FormController::class, 'fetchCity']);

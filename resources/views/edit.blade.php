@@ -16,26 +16,39 @@
    <form action="{{route('update',$data->id)}}" method="post">
     @csrf
      <div class="form-group">
-        <label for="name" style="font-weight: bold">Full Name:</label>
+        <label for="name" style="font-weight: bold;letter-spacing: 1px;word-spacing:5px">Full Name:</label>
         <input type="text" class="form-control" id="name" name="name" value="{{old('name',$data->name)}}">
         <span class="text-danger">@error('name'){{$message}}@enderror</span>
      </div>
      <div class="form-group">
-        <label for="email" style="font-weight: bold">Email:</label>
+        <label for="email" style="font-weight: bold;letter-spacing: 1px">Email:</label>
         <input type="email" class="form-control" id="email" name="email" value="{{old('email',$data->email)}}">
         <span class="text-danger">@error('email'){{$message}}@enderror</span>
      </div>
-     <div class="form-group" style="font-weight: bold">
+     <div class="form-group" style="font-weight: bold;letter-spacing: 1px">
         <label for="pass">Password:</label>
         <input type="password" class="form-control" id="pass" name="pass" value="{{old('pass',$data->password)}}">
         <span class="text-danger">@error('pass'){{$message}}@enderror</span>
      </div>
-     <div class="form-group" style="font-weight: bold">
-        <label for="phone">Mobile No.:</label>
-        <input type="integer" class="form-control" id="phone" name="phone" value="{{old('phone',$data->phone)}}">
+     <div class="form-group" style="font-weight: bold;letter-spacing: 1px;word-spacing:5px">
+        <label for="phone">Mobile No:</label>
+        <input type="number" class="form-control" id="phone" name="phone" value="{{old('phone',  $data->phone)}}">
         <span class="text-danger">@error('phone'){{$message}}@enderror</span>
      </div>
-     <div class="form-group" style="font-weight: bold">
+     {{-- <div class="form-group">
+        <div class="col">
+            <label for="inputcountry">Country:</label>
+            <select name="country" id="inputcountry" class="form-control">
+                <option selected>select</option>
+                <option value="India" @if($data['country']=="India")selected @endif>India</option>
+                <option value="UK" @if($data['country']=="UK")selected @endif>UK</option>
+                <option value="America" @if($data['country']=="America")selected @endif>America</option>
+                <option value="Rusia" @if($data['country']=="Rusia")selected @endif>Rusia</option>
+                <option value="Iran" @if($data['country']=="Iran")selected @endif>Iran</option>
+            </select>
+        </div>
+     </div> --}}
+     <div class="form-group" style="font-weight: bold;letter-spacing: 1px;word-spacing:5px">
         <label for="address">Address:</label>
         <input type="address" class="form-control" id="address" name="address" value="{{old('address',$data->address)}}">
         <span class="text-danger">@error('address'){{$message}}@enderror</span>

@@ -17,8 +17,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone');
+            $table->string('country_id');
+            $table->string('state_id');
+            $table->string('city_id');
             $table->string('address');
-            $table->rememberToken();
+
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-   <form action="{{route('update',$data->id)}}" method="post">
+   <form action="{{route('form.update',$data->id)}}" method="post">
     @csrf
      <div class="form-group">
         <label for="name" style="font-weight: bold;letter-spacing: 1px;word-spacing:5px">Full Name:</label>

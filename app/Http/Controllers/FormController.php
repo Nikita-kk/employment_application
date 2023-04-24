@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    public function form(){
-        return view('form');
-    }
+    // public function form(){
+    //     return view('form');
+    // }
     public function store(Request $request){
         $data=new user();
         $request->validate(
@@ -44,7 +44,8 @@ class FormController extends Controller
         $data->city_id=$request->city_id;
         $data->address=$request->address;
         $data->save();
-        return redirect()->route('table')->with('msg','Record has been Stored Successfully');
+        // dd($data);
+        return redirect()->route('form.table')->with('msg','Record has been Stored Successfully');
     }
     public function table(){
         $data=User::with('country')->get();
@@ -85,12 +86,12 @@ class FormController extends Controller
         $data->city_id=$request->city_id;
         $data->address=$request->address;
         $data->save();
-        return redirect()->route('table')->with('msg','Record has been Updated Successfully');
+        return redirect()->route('form.table')->with('msg','Record has been Updated Successfully');
     }
     public function delete($id){
         $data=User ::find($id);
         $data->delete();
-        return redirect()->route('table')->with('msg','Record has been Deleted Successfully');
+        return redirect()->route('form.table')->with('msg','Record has been Deleted Successfully');
     }
 
 

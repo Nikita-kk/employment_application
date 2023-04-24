@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-   <form action="{{route('store')}}" method="post">
+   <form action="{{route('form.store')}}" method="post">
     @csrf
      <div class="form-group">
         <label for="name" style="font-weight: bold;letter-spacing: 2px;word-spacing: 5px">Full Name:</label>
@@ -83,6 +83,9 @@
 
 
 
+
+
+
      <button type="submit" class="btn btn-primary">Submit</button>
    </form>
 </div>
@@ -96,6 +99,7 @@
         $('#country-dd').on('change', function () {
 
             var idCountry = this.value;
+            console.log('idCountry',idCountry);
             $("#state-dd").html('');
             $.ajax({
                 url: "{{url('api/fetch-states')}}",
@@ -104,7 +108,7 @@
                     country_id: idCountry,
                     _token: '{{csrf_token()}}'
 
-                    
+
                 },
                 dataType: 'json',
                 success: function (result) {
@@ -119,6 +123,7 @@
         });
         $('#state-dd').on('change', function () {
             var idState = this.value;
+            console.log('idState',idState)
             $("#city-dd").html('');
             $.ajax({
                 url: "{{url('api/fetch-cities')}}",
